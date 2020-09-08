@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace MyBox
@@ -5,7 +6,7 @@ namespace MyBox
 	public class ActiveStateOnStart : MonoBehaviour
 	{
 		public bool Active;
-		[MustBeAssigned] public GameObject Target;
+		[Required] public GameObject Target;
 
 		private void Awake()
 		{

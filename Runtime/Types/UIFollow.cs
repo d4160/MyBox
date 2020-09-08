@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace MyBox
@@ -13,7 +14,7 @@ namespace MyBox
 		[SerializeField, Tooltip("Hide Canvas when Following Panel is offscreen")]
 		private bool _hideOffscreen;
 #pragma warning restore 0649
-		[SerializeField, ConditionalField("_hideOffscreen")]
+		[SerializeField, HideIf("_hideOffscreen")]
 		private Canvas _canvas;
 
 		[SerializeField] private bool _editTime = true;

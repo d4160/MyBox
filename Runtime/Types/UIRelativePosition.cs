@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace MyBox
@@ -9,14 +10,14 @@ namespace MyBox
 	[ExecuteInEditMode]
 	public class UIRelativePosition : MonoBehaviour
 	{
-		[MustBeAssigned] public RectTransform Target;
+		[Required()] public RectTransform Target;
 
-		[Separator("Set X/Y, with optional offset")]
+		[Header("Set X/Y, with optional offset")]
 		public OptionalFloat SetX = OptionalFloat.WithValue(0);
 
 		public OptionalFloat SetY = OptionalFloat.WithValue(0);
 
-		[Separator("0-1 point on Target rect")]
+		[Header("0-1 point on Target rect")]
 		public Vector2 TargetAnchor = new Vector2(.5f, .5f);
 
 
@@ -71,7 +72,7 @@ namespace MyBox
 			UpdateView();
 		}
 
-		[ButtonMethod]
+		[Button]
 		private void UpdateView()
 		{
 			_latestSize = Vector2.zero;

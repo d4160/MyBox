@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace MyBox
@@ -8,13 +9,13 @@ namespace MyBox
 	[ExecuteInEditMode]
 	public class UISizeBy : MonoBehaviour
 	{
-		[MustBeAssigned] public RectTransform CopySizeFrom;
+		[Required] public RectTransform CopySizeFrom;
 
-		[Separator("CopyWidth/Height, Set optional offset")]
+		[Header("CopyWidth/Height, Set optional offset")]
 		public OptionalInt CopyWidth = OptionalInt.WithValue(0);
 		public OptionalInt CopyHeight = OptionalInt.WithValue(0);
 
-		[Separator("Optional Min/Max Width/Height")]
+		[Header("Optional Min/Max Width/Height")]
 		public OptionalMinMax MinMaxWidth;
 		public OptionalMinMax MinMaxHeight;
 
@@ -50,7 +51,7 @@ namespace MyBox
 		}
 
 #if UNITY_EDITOR
-		[ButtonMethod]
+		[Button]
 		private void UpdateView()
 		{
 			_latestSize = Vector2.zero;

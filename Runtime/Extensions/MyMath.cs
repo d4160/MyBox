@@ -136,4 +136,53 @@ namespace MyBox
 			return Mathf.Approximately(closestPoint, pointA);
 		}
 	}
+
+    [Serializable]
+    public struct RangedFloat
+    {
+        public float Min;
+        public float Max;
+
+        public RangedFloat(float min, float max)
+        {
+            Min = min;
+            Max = max;
+        }
+    }
+
+    [Serializable]
+    public struct RangedInt
+    {
+        public int Min;
+        public int Max;
+
+        public RangedInt(int min, int max)
+        {
+            Min = min;
+            Max = max;
+        }
+    }
+
+    public static class RangedExtensions
+    {
+        public static float LerpFromRange(this RangedFloat ranged, float t)
+        {
+            return Mathf.Lerp(ranged.Min, ranged.Max, t);
+        }
+
+        public static float LerpFromRangeUnclamped(this RangedFloat ranged, float t)
+        {
+            return Mathf.LerpUnclamped(ranged.Min, ranged.Max, t);
+        }
+
+        public static float LerpFromRange(this RangedInt ranged, float t)
+        {
+            return Mathf.Lerp(ranged.Min, ranged.Max, t);
+        }
+
+        public static float LerpFromRangeUnclamped(this RangedInt ranged, float t)
+        {
+            return Mathf.LerpUnclamped(ranged.Min, ranged.Max, t);
+        }
+    }
 }

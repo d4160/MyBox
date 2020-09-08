@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,10 +9,10 @@ namespace MyBox
 	public class UIImageBasedButton : MonoBehaviour, ISelectHandler, IDeselectHandler
 	{
 #pragma warning disable 0649
-		[SerializeField, MustBeAssigned] private Sprite _regularSprite;
-		[SerializeField, MustBeAssigned] private Sprite _regularSelectedSprite;
-		[SerializeField, MustBeAssigned] private Sprite _clickedSprite;
-		[SerializeField, MustBeAssigned] private Sprite _clickedSelectedSprite;
+		[SerializeField, Required] private Sprite _regularSprite;
+		[SerializeField, Required] private Sprite _regularSelectedSprite;
+		[SerializeField, Required] private Sprite _clickedSprite;
+		[SerializeField, Required] private Sprite _clickedSelectedSprite;
 #pragma warning restore 0649
 
 
